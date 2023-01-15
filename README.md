@@ -166,6 +166,83 @@ Teams
 </p>
 <br />
 
+Agents
+======
+
+**Admin Panel > Agents > Agents**
+
+<p>
+<img src="https://raw.githubusercontent.com/osTicket/docs/master/_static/images/admin_agents_agents.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Agents are given access to the help desk with the intent to respond and resolve the tickets. When adding an Agent to the help desk, they will need to be assigned to a Primary Department and given a Primary Role for the Tickets/Tasks routed to that department. Agents can be given Extended Access to additional departments of the help desk as well as assigned different Roles to those departments; this can be configured in the Access tab of the Agent’s Profile.
+
+**Reset an agent’s password**
+
+If necessary, administrators can manually reset an agent’s password by clicking the Set Password box in the middle of the Account page. This will produce a pop-up box with two options; the first is to send a password reset email to the agent. **Please note**, if the agent has not first set a password post-creation they can not reset said password. The second option for the admin is to uncheck the box which will populate fields to manually set a password for the agent. Once manually set, the admin will need to communicate this to the agent allowing them to log-in; the agent can be forced to reset the password upon logging in by keeping the box checked at the bottom left of the pop-up.
+
+**Status and Settings**
+
+  **Locked:** Agents who are Locked/Disabled are unable to log into the help desk. They will not be visible for assignment or auto assignments. Email alerts will not be sent to disabled agents as well.
+
+  **Administrator:** Agents marked as “Administrators” simply have access to the Admin Panel are able to make global configuration changes to the help desk. All changes are effective moving forward and will not revert to previously configured settings. Agents with access to the Admin Panel can grant additional agents access to this panel for global configurations.
+
+  **Limit ticket access to ONLY assigned tickets:** When this is checked these agents will only see tickets which are directly assigned to them as an agent or a team to which the agent belongs- regardless of department access. Once tickets are set to a status of a closed state, the assignment is released and the agent will lose access to these closed tickets; if the ticket is reopened, the agent could regain access if it is reopened assigned to them.
+
+  **Vacation Mode:** Agents who are on vacation mode are able to log into the help desk but, like Locked/Disabled agents, they will not be visible for assignment or auto assignments and email alerts will not be sent to these agents as well. An agent can manually set themselves to Vacation Mode in their Profile or an agent with access to the Admin Panel. Vacation Mode must be manually enabled as well as disabled.
+
+Agent Access
+------------
+
+Agents are given access to the help desk with the intent to respond and resolve the tickets. When adding an Agent to the help desk, they will need to be assigned to a Primary Department and given a Primary Role for the Tickets/Tasks routed to that department. Agents can be given Extended Access to additional departments of the help desk as well as assigned different Roles to those departments; this can be configured in the Access tab of the Agent’s Profile.
+
+Fall back to primary role
+For agents without department access which are granted access to tickets via Ticket Assignment/Ticket Referral, they will have Primary Role Permissions for tickets if this is checked. Otherwise, Agents will have a view only access to these tickets allowing them to post an internal note only.
+
+**Agent Permissions**
+
+  **Users**
+
+   **Create:** Ability to add new users
+
+   **Edit:** Ability to manage user information
+
+   **Delete:** Ability to delete users
+
+   **Manage Account:** Ability to manage active user accounts
+
+   **User Directory:** Ability to access the user directory
+
+  **Organizations**
+
+   **Create:** Ability to create new organizations
+
+   **Edit:** Ability to manage organizations
+
+   **Delete:** Ability to delete organizations
+
+  **Knowledgebase**
+
+   **FAQ:** Ability to add/update/disable/delete knowledgebase categories and FAQs
+
+  **Miscellaneous**
+
+   **Banlist:** Ability to add/remove emails from banlist via ticket interface
+
+   **Search:** See all tickets in search results, regardless of access
+
+   **Stats:** Ability to view stats of other agents in allowed departments
+
+</p>
+<br />
+
+
+
+
+
+
+
+
 SLA Plans
 =========
 
@@ -209,6 +286,34 @@ For tickets created via email, the department that the email address is assigned
 
 </p>
 <br />
+
+SLA Plans or Service Level Agreements, are unlimited in osTicket. The purpose of the SLA Plan is to provide a length of time in which the help desk Administrator expects tickets to be closed.
+
+SLA Plans can be created by going to the Admin Panel > Manage > SLA Plans. Click on the top right of the table to “Add New SLA Plan.”
+
+One configuration to note with each SLA Plan is whether it can be overridden on Department transfer or change of Help Topic by being Transient. Transient SLAs are considered temporary and can be overridden by a non-transient SLA on Department transfer or when its **Help Topic** is changed.
+
+Once created, SLA Plans can be determined for Departments, Ticket Filters, and Help Topics. There is also a System Default SLA Plan which can be chosen by going to Admin Panel > Settings > Tickets.
+
+When a ticket is created internally from the Staff Panel, agents can choose an SLA Plan which will override any other assignments to a Department or Help Topic. Agents can also select a Due Date for the ticket which, if passed, will cause the ticket to become overdue. No SLA plan can override a due date.
+
+If a ticket is created from the Client Interface, the SLA Plan associated with the Help Topic will be in effect unless a Ticket Filter is in place and the criteria is met; then the SLA Plan associated with the Ticket Filter will be in effect.
+
+For tickets created via email, the department that the email address is assigned to will determine the SLA plan of the ticket unless a Ticket Filter is in place and the criteria is met; then the SLA Plan associated with the Ticket Filter will be in effect.
+
+**Admin Panel > Manage > SLA Plans:**
+
+**Service Level Agreements:** SLA Plans can be set by help topic and department to ensure the ticket is CLOSED in the allotted or specified amount of time.
+
+  **Name:**  Plan name to be selected when assigning.
+
+  **Grace Period:**  Amount, in hours, before tickets with this SLA will become overdue if not closed in allotted time.
+
+  **Status:**  Choose Active or Disable for the plan.
+
+  **Transient:** SLA can be overridden on ticket transfer or help topic change; if not transient, the SLA will remain the same as it is assigned on ticket creation.
+
+  **Ticket Overdue Alerts:** This will DISABLE overdue alert notices to staff for tickets assigned this SLA.
 
 <p>
 <img src="https://i.imgur.com/4W3XCMV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -393,13 +498,6 @@ Click the Users Tab.
 </p>
 <br />
 
-<p>
-<img src="https://i.imgur.com/tLKgebU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Create a new User.
-</p>
-<br />
 
 <p>
 <img src="https://i.imgur.com/0QAD95l.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
